@@ -1,0 +1,44 @@
+{
+  "name": "neofire/plentymarkets-debugger",
+  "description": "neofire plentymarkets Debugger Plugin",
+  "version": "v1.0.9",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+      {
+          "name": "neofire | Deutschland",
+          "email": "info@neofire.de",
+          "homepage": "https://www.neofire.de",
+          "role": "Developer"
+      }
+    ],
+    "require": {
+        "shopware/core": "6.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "NeofirePlentymarketsDebugger\\NeofirePlentymarketsDebugger",
+        "plugin-icon": "src/Resources/config/plugin.png",
+        "copyright": "(c) by neofire",
+        "label": {
+            "de-DE": "plentymarkets Debugger",
+            "en-GB": "plentymarkets Debugger"
+        },
+        "description": {
+          "de-DE": "neofire plentymarkets Debugger is a plugin to connect plentymarkets to Shopware 6.",
+          "en-GB": "neofire plentymarkets Debugger is a plugin to connect plentymarkets to Shopware 6."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://www.neofire.de",
+            "en-GB": "https://www.neofire.de"
+        },
+        "supportLink": {
+            "de-DE": "https://www.neofire.de",
+            "en-GB": "https://www.neofire.de"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "NeofirePlentymarketsDebugger\\": "src/"
+        }
+    }
+}

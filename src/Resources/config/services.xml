@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="NeofirePlentymarketsDebugger\Administration\Controller\PlentymarketsController" public="true">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsBase" />
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Twig\TemplateFinder"/>
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsOrders" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsStock" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsCategories" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsProduct" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsData" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsRestarts" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsDeliveryTime" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsManufacturers" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsUnits" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsTax" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsAttributes" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsVariationAttributes" />
+            <argument type="service" id="NeofirePlentymarketsConnector\Administration\Service\PlentymarketsFields" />
+            <argument type="service" id="Doctrine\DBAL\Connection" />
+        </service>
+    </services>
+</container>

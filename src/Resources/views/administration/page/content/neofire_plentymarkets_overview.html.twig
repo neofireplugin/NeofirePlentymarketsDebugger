@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/ef539ea5a5.js"></script>
+        <link rel="stylesheet" href="../bundles/neofireplentymarketsdebugger/administration/css/NeofirePlentymarketsDebugger.css">
+    </head>
+    <body class="iframe-body">
+        <div class="iframe-content">
+            <img src="//cdn01.plentymarkets.com/avw8j9fg70hi/frontend/layout/plentycom/images/logo/plentymarkets-logo.svg" alt="plentymarkets Logo" width="365" ><br><br><br><br><br><br>
+            <button onclick="self.location.href='{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}'" class="sw-button sw-button--primary" name="overview" value=""><!---->
+                <span class="sw-button__content">
+                Import manuell starten
+                </span>
+            </button><br><br>
+            <button onclick="self.location.href='{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}?restart=all'" class="sw-button sw-button--primary" name="overview" value=""><!---->
+                <span class="sw-button__content">
+                Import komplett neu starten
+                </span>
+            </button><br><br>{{ output | raw }}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Plugin-Link</title>
+        <title lang="de-DE">Plugin-Link</title>
+
+        <input-field>
+            <name>securekey</name>
+            <required>true</required>
+            <label>securekey</label>
+            <label lang="de-DE">Sicherheitsschlüssel</label>
+            <helpText></helpText>
+            <helpText lang="de-DE">Tragen Sie hier einen Sicherheitsschlüssel ein.</helpText>
+        </input-field>
+
+        <component name="plentyplugin">
+            <name>plentyplugin</name>
+        </component>
+
+        <component name="plentypluginlink">
+            <name>plentypluginlink</name>
+        </component>
+    </card>
+
+</config>

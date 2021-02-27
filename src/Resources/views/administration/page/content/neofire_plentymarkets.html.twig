@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta http-equiv="refresh" content="3; URL={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}">
+        <script src="https://kit.fontawesome.com/ef539ea5a5.js"></script>
+        <link rel="stylesheet" href="../bundles/neofireplentymarketsdebugger/administration/css/NeofirePlentymarketsDebugger.css">
+    </head>
+    <body>
+        <div class="leftside">
+            <div class="todo">Aufgaben:</div><br>
+            <div class="sidecontent">{{ info | raw }}</div>
+        </div>
+        <div class="arraycontent">{{ output | raw }}
+            <div class="left-sidebar">
+                <button onclick="self.location.href='{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}?start=1'" class="sw-button sw-button--primary" name="overview" value=""><!---->
+                    <span class="sw-button__content">
+                    zurück
+                    </span>
+                </button>
+                <br><br>Ladezeit: {{ time | raw }} Sek.
+            </div>
+        </div>
+    </body>
+</html>
