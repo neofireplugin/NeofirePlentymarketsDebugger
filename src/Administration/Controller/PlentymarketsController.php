@@ -210,11 +210,18 @@ class PlentymarketsController extends AbstractController
 
             $output = '<div style="position:fixed;top:60px;">Shopware V.6.1<br><br><br><a class="ankerlink" href="#$shopware"><i class="fab fa-shopware"></i> Bestelldaten</a><div class="ankerdesc">Übersicht der Bestelldaten, wie sie von plentymarkets ausgegeben werden.</div>';
 
-            if(is_array($list['plenty_account'])){
-                $output .= '<br><a class="ankerlink" href="#plenty_account_address"><i class="fas fa-user"></i>Account</a><div class="ankerdesc">Übersicht welche Daten für den Account an plentymarkets gesendet werden.</div>';
-            }
 
-            $output .= '<br><a class="ankerlink2" href="#$plenty_account"><i class="fas fa-file-invoice"></i> Account</a><div class="ankerdesc">Übersicht welche Daten für den Account an plentymarkets gesendet werden. <br><br><a class="smallicon" href="#$plenty_account_result"><i class="fas fa-trophy"></i>Ergebnis von Account</a></div>';
+
+            $output .= '<br><a class="ankerlink2" href="#$plenty_account"><i class="fas fa-user"></i> Account</a><div class="ankerdesc">Übersicht welche Daten für den Account an plentymarkets gesendet werden. <br><br><a class="smallicon" href="#$plenty_account_result"><i class="fas fa-trophy"></i>Ergebnis von Account</a></div>';
+
+
+            $output .= '<br><a class="ankerlink2" href="#$plenty_account_address"><i class="fas fa-map-marker-alt"></i>Account Adresse</a><div class="ankerdesc">Übersicht welche Daten für den Account an plentymarkets gesendet werden.';
+
+            if(is_array($list['plenty_account_address_result'])) {
+                $output .= '<br><br><a class="smallicon" href="#$plenty_account_address_result"><i class="fas fa-trophy"></i>Ergebnis von Account Adresse</a>';
+            }
+            $output .= '</div>';
+
 
             $output .= '
             <br><a class="ankerlink2" href="#$plenty_billing_address"><i class="fas fa-file-invoice"></i> Rechnungsadresse</a><div class="ankerdesc">Übersicht welche Daten für die Rechnungsadresse an plentymarkets gesendet werden. <br><br><a class="smallicon" href="#$plenty_billing_address_result"><i class="fas fa-trophy"></i>Ergebnis von Rechnungsadresse</a></div>
@@ -236,7 +243,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['shopware'])){
 
-                    $output .= '<h3 id="$shopware"><i class="fas fa-share"></i>' . $entry['shopware']['name'] . '</h3><br>';
+                    $output .= '<h3 id="$shopware"><i class="fab fa-shopware"></i>' . $entry['shopware']['name'] . '</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['shopware']['array'], '$shopware');
                     $output .= '</pre>';
@@ -245,7 +252,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_account'])){
 
-                    $output .= '<h3 id="$plenty_account"><i class="fas fa-share"></i>'.$entry['plenty_account']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_account"><i class="fas fa-user"></i>'.$entry['plenty_account']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_account']['array'], '$plenty_account');
                     $output .= '</pre>';
@@ -254,7 +261,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_account_result'])){
 
-                    $output .= '<h3 id="$plenty_account_result"><i class="fas fa-share"></i>'.$entry['plenty_account_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_account_result"><i class="fas fa-trophy"></i>'.$entry['plenty_account_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_account_result']['array'], '$plenty_account_result');
                     $output .= '</pre>';
@@ -263,7 +270,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_account_address'])){
 
-                    $output .= '<h3 id="$plenty_account_address"><i class="fas fa-share"></i>'.$entry['plenty_account_address']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_account_address"><i class="fas fa-map-marker-alt"></i>'.$entry['plenty_account_address']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_account_address']['array'], '$plenty_account_address');
                     $output .= '</pre>';
@@ -272,7 +279,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_account_address_result'])){
 
-                    $output .= '<h3 id="$plenty_account_address_result"><i class="fas fa-share"></i>'.$entry['plenty_account_address_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_account_address_result"><i class="fas fa-trophy"></i>'.$entry['plenty_account_address_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_account_address_result']['array'], '$plenty_account_address_result');
                     $output .= '</pre>';
@@ -281,7 +288,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_billing_address'])){
 
-                    $output .= '<h3 id="$plenty_billing_address"><i class="fas fa-share"></i>'.$entry['plenty_billing_address']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_billing_address"><i class="fas fa-file-invoice"></i>'.$entry['plenty_billing_address']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_billing_address']['array'], '$plenty_billing_address');
                     $output .= '</pre>';
@@ -290,7 +297,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_billing_address_result'])){
 
-                    $output .= '<h3 id="$plenty_billing_address_result"><i class="fas fa-share"></i>'.$entry['plenty_billing_address_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_billing_address_result"><i class="fas fa-trophy"></i>'.$entry['plenty_billing_address_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_billing_address_result']['array'], '$plenty_billing_address_result');
                     $output .= '</pre>';
@@ -299,7 +306,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_shipping_address'])){
 
-                    $output .= '<h3 id="$plenty_shipping_address"><i class="fas fa-share"></i>'.$entry['plenty_shipping_address']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_shipping_address"><i class="fas fa-dolly"></i>'.$entry['plenty_shipping_address']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_shipping_address']['array'], '$plenty_shipping_address');
                     $output .= '</pre>';
@@ -308,7 +315,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_shipping_address_result'])){
 
-                    $output .= '<h3 id="$plenty_shipping_address_result"><i class="fas fa-share"></i>'.$entry['plenty_shipping_address_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_shipping_address_result"><i class="fas fa-trophy"></i>'.$entry['plenty_shipping_address_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_shipping_address_result']['array'], '$plenty_shipping_address_result');
                     $output .= '</pre>';
@@ -317,7 +324,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_order'])){
 
-                    $output .= '<h3 id="$plenty_order"><i class="fas fa-share"></i>'.$entry['plenty_order']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_order"><i class="fas fa-cash-register"></i>'.$entry['plenty_order']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_order']['array'], '$plenty_order');
                     $output .= '</pre>';
@@ -326,7 +333,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_order_result'])){
 
-                    $output .= '<h3 id="$plenty_order_result"><i class="fas fa-share"></i>'.$entry['plenty_order_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_order_result"><i class="fas fa-trophy"></i>'.$entry['plenty_order_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_order_result']['array'], '$plenty_order_result');
                     $output .= '</pre>';
@@ -335,7 +342,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_notice'])){
 
-                    $output .= '<h3 id="$plenty_notice"><i class="fas fa-share"></i>'.$entry['plenty_notice']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_notice"><i class="fas fa-sticky-note"></i>'.$entry['plenty_notice']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_notice']['array'], '$plenty_notice');
                     $output .= '</pre>';
@@ -344,7 +351,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_notice_result'])){
 
-                    $output .= '<h3 id="$plenty_notice_result"><i class="fas fa-share"></i>'.$entry['plenty_notice_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_notice_result"><i class="fas fa-trophy"></i>'.$entry['plenty_notice_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_notice_result']['array'], '$plenty_notice_result');
                     $output .= '</pre>';
@@ -353,7 +360,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_payment'])){
 
-                    $output .= '<h3 id="$plenty_payment"><i class="fas fa-share"></i>'.$entry['plenty_payment']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_payment"><i class="far fa-credit-card"></i>'.$entry['plenty_payment']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_payment']['array'], '$plenty_payment');
                     $output .= '</pre>';
@@ -362,7 +369,7 @@ class PlentymarketsController extends AbstractController
 
                 if(is_array($entry['plenty_payment_result'])){
 
-                    $output .= '<h3 id="$plenty_payment_result"><i class="fas fa-share"></i>'.$entry['plenty_payment_result']['name'].'</h3><br>';
+                    $output .= '<h3 id="$plenty_payment_result"><i class="fas fa-trophy"></i>'.$entry['plenty_payment_result']['name'].'</h3><br>';
                     $output .= '<pre style="background:#f5f5f5;padding:10px;border: solid 1px #eaeaea;">';
                     $output .= $this->varToHtml($entry['plenty_payment_result']['array'], '$plenty_payment_result');
                     $output .= '</pre>';
